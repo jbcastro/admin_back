@@ -5,7 +5,8 @@ const path = require("path");
 
 const app = express();
 app.use(cors());
-const port = process.env.PORT || 5000;
+const port =
+  process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 5000;
 var wineMethods = require("./models/wineMethods");
 var Wines = require("./models/wine");
 const bodyParser = require("body-parser");
