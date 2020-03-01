@@ -1,0 +1,74 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "engines": {
+    "node": "12.13.0"
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "consolidate": "^0.15.1",
+    "cors": "^2.8.5",
+    "create-react-app": "^3.2.0",
+    "date-fns": "^2.9.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "material-table": "^1.56.1",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.9",
+    "mustache": "^4.0.0",
+    "npm-update-all": "^1.0.1",
+    "pug": "^2.0.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.3.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "proxy": "http://localhost:5000/",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbcastro/btg_matrix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbcastro/btg_matrix/issues"
+  },
+  "homepage": "https://github.com/jbcastro/btg_matrix#readme"
+}
