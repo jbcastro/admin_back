@@ -26,4 +26,3 @@ yarn-error.log*
 connection.js
 
 /node_modules
-package-lock.json
