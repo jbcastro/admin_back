@@ -1,41 +1,28 @@
 {
-  "name": "admin_mode",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "body-parser": "^1.19.0",
-    "consolidate": "^0.15.1",
+    "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "create-react-app": "^3.2.0",
-    "date-fns": "^2.9.0",
-    "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "material-table": "^1.56.1",
-    "mongodb": "^3.5.2",
-    "mongoose": "^5.8.9",
-    "mustache": "^4.0.0",
-    "pug": "^2.0.4",
-    "typescript": "^3.7.5",
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.5.1",
-    "@material/card": "^3.2.0",
-    "@shopify/polaris": "^4.11.0",
-    "babel-eslint": "^10.0.3",
-    "informed": "^2.11.17",
-    "material-ui-icons": "^1.0.0-beta.36",
-    "npm-update-all": "^1.0.1",
+    "material-table": "^1.52.0",
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-hook-form": "^4.7.0",
-    "react-scripts": "^3.3.0"
+    "react-scripts": "3.0.1",
+    "yarn": "^1.19.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "dev": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -51,10 +38,24 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3000",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "devDependencies": {},
+  "description": "",
+  "main": "server.js",
+  "devDependencies": {
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbcastro/btg_matrix.git"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbcastro/btg_matrix/issues"
+  },
+  "homepage": "https://github.com/jbcastro/btg_matrix#readme"
 }
