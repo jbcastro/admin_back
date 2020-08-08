@@ -53,79 +53,64 @@ app.get("/delete", (req, res, next) => {
     });
 });
 
-app.post("/add", (req, res) => {
-  // const
+app.post("/add", (req, res, next) => {
   if (!req.body._id) {
-    let small = new Wines({
-      _id: req.body._id,
-      // winenum: req.body.winenum,
-      name: req.body.name,
-      grape1: req.body.grape1,
-      grape2: req.body.grape2,
-      grape3: req.body.grape3,
-      grapes: req.body.grapes,
-      year: req.body.year,
-      place: req.body.place,
-      area: req.body.area,
-      country: req.body.country,
-      appellation: req.body.appellation,
-      description1: req.body.description1,
-      description2: req.body.description2,
-      description3: req.body.description3,
-      description4: req.body.description4,
-      description5: req.body.description5,
-      description6: req.body.description6,
-      description7: req.body.description7,
-      description8: req.body.description8,
-      description9: req.body.description9,
-      description10: req.body.description10,
-      funfact: req.body.funfact,
-      timestamp: Date.now(),
-      price: req.body.price,
-      mise: req.body.mise,
-
-      color: req.body.color,
-      status: req.body.status
-    });
-    small.save((err, newWine) => {
-      if (err) return handleError(err);
-      res.json({ updated: 0, _id: newWine._id });
-    });
-  } else {
-    Wines.updateOne(
+    let wine = new Wines(
+      // {
+      //   _id: req.body._id
+      // },
       {
-        _id: req.body._id
-      },
-      {
-        // winenum: req.body.winenum,
+        vinyard: req.body.vinyard,
         name: req.body.name,
-        grape1: req.body.grape1,
-        grape2: req.body.grape2,
-        grape3: req.body.grape3,
+        grape: req.body.grape,
         grapes: req.body.grapes,
         year: req.body.year,
         place: req.body.place,
         area: req.body.area,
         country: req.body.country,
         appellation: req.body.appellation,
-        description1: req.body.description1,
-        description2: req.body.description2,
-        description3: req.body.description3,
-        description4: req.body.description4,
-        description5: req.body.description5,
-        description6: req.body.description6,
-        description7: req.body.description7,
-        description8: req.body.description8,
-        description9: req.body.description9,
-        description10: req.body.description10,
-
+        description: req.body.description,
         funfact: req.body.funfact,
-        price: req.body.price,
         timestamp: Date.now(),
+        price: req.body.price,
         mise: req.body.mise,
+        lastUpdated: Date.now(),
 
         color: req.body.color,
-        status: req.body.status
+        status: req.body.status,
+        picture: req.body.picture,
+        coravin: req.body.coravin
+      }
+    );
+    // wine.save().then(item => res.json(item));
+    wine.save((err, newWine) => {
+      if (err) return next(err);
+      return res.json({ updated: 0, _id: newWine._id });
+    });
+  } else {
+    Wines.updateOne(
+      { _id: req.body._id },
+      {
+        vinyard: req.body.vinyard,
+        name: req.body.name,
+        grape: req.body.grape,
+        grapes: req.body.grapes,
+        year: req.body.year,
+        place: req.body.place,
+        area: req.body.area,
+        country: req.body.country,
+        appellation: req.body.appellation,
+        description: req.body.description,
+        funfact: req.body.funfact,
+        timestamp: Date.now(),
+        price: req.body.price,
+        mise: req.body.mise,
+        lastUpdated: Date.now(),
+
+        color: req.body.color,
+        status: req.body.status,
+        picture: req.body.picture,
+        coravin: req.body.coravin
       },
       (err, result) => {
         if (err) return next(err);
