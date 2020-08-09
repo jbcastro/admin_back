@@ -1,2 +1,2 @@
 exports.connectionString2 =
-  "mongodb://jprovance:!RN74Wines@ds161804.mlab.com:61804/glasses";
+  "mongodb://dbuser:P@ssw0rd@ds047612.mlab.com:47612/wines";
